@@ -1,0 +1,48 @@
+<html>
+
+<body onmousemove="followingmouse()">
+    <span style="position:absolute;top:400;left:800" id="Nationwide">
+        Nationwide
+    </span>
+    
+    <input type="text" style="position:absolute;top:800;left:200" value="Trial" id="Textbox 1" onmouseenter="leavingtable(id)">
+    <input type="text" style="position:absolute;top:700;left:1400" value="Wibble" id="Textbox 2" onmouseenter="leavingtable(id)">
+    <input type="text" style="position:absolute;top:500;left:800" value="Reset" id="Textbox 2" onmouseenter="Reset()">
+    <input type="text" style="position:absolute;top:200;left:900" value="BlueText" id="TextBlue" onmouseenter="colourtext('blue')">
+    <input type="text" style="position:absolute;top:100;left:200" value="RedText" id="TextBlue" onmouseenter="colourtext('red')">
+    <input type="text" style="position:absolute;top:40;left:1600" value="GreenText" id="TextBlue" onmouseenter="colourtext('green')">
+
+
+</body>
+
+<script>
+    
+    function followingmouse(){
+        document.getElementById("Nationwide").style.left=event.clientX;
+        document.getElementById("Nationwide").style.top=event.clientY+30;
+
+        if(event.ctrlkey==true){
+            font++
+        }
+        if(event.altkey==true){
+            font++
+        }
+    }
+
+    function leavingtable(origin){
+        document.getElementById("Nationwide").innerHTML=document.getElementById(origin).value;
+    }
+
+    function colourtext(text){
+        document.getElementById("Nationwide").style.color=text;
+    }
+    function Reset(){
+        
+        document.getElementById("Nationwide").innerHTML="Nationwide";
+        document.getElementById("Nationwide").style.color="black";
+    }
+
+</script>
+
+
+</html>

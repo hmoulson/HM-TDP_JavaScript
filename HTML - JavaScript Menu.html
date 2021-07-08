@@ -1,0 +1,65 @@
+<html>
+
+<span id="Main1" style="position:absolute;top:100;left:20" onmouseenter="displaymenu1()">
+    <b> Sports </b>
+</span>
+
+<span id="Main2" style="position:absolute;top:100;left:250" onmouseenter="displaymenu2()">
+    <b> Countries </b>
+</span>
+
+<span id="sportsmenu" style="visibility:hidden">
+    <span id="Football" style="position:absolute;top:125;left:20" value="Football" onmouseenter="mousein(id)" onmouseleave="mouseout(id)" onmouseover="popuptext(id)">Football</span>
+    <span id="Cricket" style="position:absolute;top:150;left:20" value="Cricket" onmouseenter="mousein(id)" onmouseleave="mouseout(id)" onmouseover="popuptext(id)">Cricket</span>
+    <span id="Tennis" style="position:absolute;top:175;left:20" value="Tennis" onmouseenter="mousein(id)" onmouseleave="mouseout(id)" onmouseover="popuptext(id)">Tennis</span>
+</span>
+
+<span id="countrymenu" style="visibility:hidden">
+    <span id="UK" style="position:absolute;top:125;left:250" value="UK" onmouseenter="mousein(id)" onmouseleave="mouseout(id)" onmouseover="popuptext(id)"> UK </span>
+    <span id="France" style="position:absolute;top:150;left:250" value="France" onmouseenter="mousein(id)" onmouseleave="mouseout(id)" onmouseover="popuptext(id)"> France </span>
+    <span id="Australia" style="position:absolute;top:175;left:250" value="Australia" onmouseenter="mousein(id)" onmouseleave="mouseout(id)" onmouseover="popuptext(id)"> Australia </span>
+</span>
+
+<span id="testing text" style="position:absolute;top:0;left:0;visibility:hidden"> Testing Text </span>
+
+
+
+
+<script>
+    function mousein(myid){
+        document.getElementById(myid).style.backgroundColor="black";
+        document.getElementById(myid).style.color="white";
+    }
+    function mouseout(myid){
+        let id=myid;
+        document.getElementById(myid).style.backgroundColor="white";
+        document.getElementById(myid).style.color="black";
+    }
+    function displaymenu1(){
+        document.getElementById("sportsmenu").style.visibility="visible";
+        document.getElementById("countrymenu").style.visibility="hidden";
+    }
+
+    function displaymenu2(){
+        document.getElementById("sportsmenu").style.visibility="hidden";
+        document.getElementById("countrymenu").style.visibility="visible";
+    }
+
+    function popuptext(myID){
+        let testingtext = document.createElement(input);
+        testingtext.innerHTML="<b> This is testing text <b>"
+        testingtext.innerHTML="style.top=100"
+        //document.getElementById(myID).style.top;
+        testingtext.innerHTML="style.left=100"
+        //parseInt(document.getElementById(myID).style.left)+80;
+        document.body.appendChild(testingtext);
+        
+
+        document.getElementById(testingtext).style.top=document.getElementById(myID).style.top;
+        document.getElementById(testingtext).style.left=parseInt(document.getElementById(myID).style.left)+80;
+        document.getElementById(testingtext).style.visibility="visible";
+        document.getElementById(testingtext).value=document.getElementById(myID).value;
+    }
+</script>
+
+</html>
