@@ -1,0 +1,73 @@
+<html>
+    <script>
+        function CopyUppercase(){
+            let msg = document.getElementById("textentry").value;
+            let newmsg="";
+            let i=0;
+            for(i=0;i<msg.length;i++)
+            {    
+                if(msg.charCodeAt(i)>=65 && msg.charCodeAt(i)<=90) 
+                {
+                    newmsg+=msg.substring(i,i+1);
+                }
+            }
+            document.getElementById("textoutput").value=newmsg;
+        }
+        function CopyLowercase(){
+            let msg = document.getElementById("textentry").value;
+            let newmsg="";
+            let i=0;
+            for(i=0;i<msg.length;i++)
+            {    
+                if(msg.charCodeAt(i)>=97 && msg.charCodeAt(i)<=122) 
+                {
+                    newmsg+=msg.substring(i,i+1);
+                }
+            }
+            document.getElementById("textoutput").value=newmsg;
+        }
+        function CopyNumbers(){
+            let msg = document.getElementById("textentry").value;
+            let newmsg="";
+            let i=0;
+            for(i=0;i<msg.length;i++)
+            {    
+                if(msg.charCodeAt(i)>=48 && msg.charCodeAt(i)<=57) 
+                {
+                    newmsg+=msg.substring(i,i+1);
+                }
+            }
+            document.getElementById("textoutput").value=newmsg;
+        }
+        function CopySpecialCharacters(){
+            let msg = document.getElementById("textentry").value;
+            let newmsg="";
+            let i=0;
+            for(i=0;i<msg.length;i++)
+            {    
+                if(msg.charCodeAt(i)<48 || msg.charCodeAt(i)>57 && msg.charCodeAt(i)<65 || msg.charCodeAt(i)>90 && msg.charCodeAt(i)<97 || msg.charCodeAt(i)>122) 
+                {
+                    newmsg+=msg.substring(i,i+1);
+                }
+            }
+            document.getElementById("textoutput").value=newmsg;
+        }
+
+
+
+    </script>
+    <body>
+        <input type="text" id="textentry"><br>
+
+        <input type="button" value="Upper Case" onClick="CopyUppercase()">
+        <input type="button" value="Lower Case" onClick="CopyLowercase()">
+        <input type="button" value="Numbers" onClick="CopyNumbers()">
+        <input type="button" value="Special Characters" onClick="CopySpecialCharacters()"><br>
+
+        <input type="text" id="textoutput">
+
+    </body>
+
+
+    
+    </body>
