@@ -1,0 +1,219 @@
+<html>
+
+
+<script>
+    let QARecords=[
+    {
+        "Regno":"P145",
+        "Name":"Brian",
+        "Marks":120
+    },
+    {
+        "Regno":"P192",
+        "Name":"Charlie",
+        "Marks":108
+    },
+    {
+        "Regno":"C231",
+        "Name":"Laura",
+        "Marks":127
+    },
+    {
+        "Regno":"C293",
+        "Name":"Ryan",
+        "Marks":113
+    },
+    {
+        "Regno":"P122",
+        "Name":"Sophie",
+        "Marks":137
+    }
+    ];
+    
+    
+
+
+
+
+    
+    function showrecords(){
+        let Reftable=document.createElement("table")
+        Reftable.border=4
+
+        let Trow=document.createElement("tr");
+        Trow.style.backgroundColor="black";
+        let TD_regno=document.createElement("td");
+        let TD_name=document.createElement("td");
+        let TD_marks=document.createElement("td");
+        let TD_percentage=document.createElement("td");
+        let TD_PassFail=document.createElement("td");
+
+        TD_regno.innerHTML="<b> <font color=white> Registration </color> </b>";
+        TD_name.innerHTML="<b> <font color=white> Name </color> </b>";
+        TD_marks.innerHTML="<b> <font color=white> Marks </color> </b>";
+        TD_percentage.innerHTML="<b> <font color=white> Percentage </color> </b>";
+        TD_PassFail.innerHTML="<b> <font color=white> Pass / Fail </color> </b>";
+
+            Trow.appendChild(TD_regno);
+            Trow.appendChild(TD_name);
+            Trow.appendChild(TD_marks);
+            Trow.appendChild(TD_percentage);
+            Trow.appendChild(TD_PassFail);
+
+            Reftable.appendChild(Trow);
+
+        for(i=0;i<QARecords.length;i++){
+
+            let Trow=document.createElement("tr");
+            Trow.style.backgroundColor="white";
+            let TD_regno=document.createElement("td");
+            let TD_name=document.createElement("td");
+            let TD_marks=document.createElement("td");
+            let TD_percentage=document.createElement("td");
+            let TD_PassFail=document.createElement("td");
+
+            TD_regno.innerHTML=QARecords[i].Regno;
+            TD_name.innerHTML=QARecords[i].Name;
+            TD_marks.innerHTML=QARecords[i].Marks;
+            TD_percentage.innerHTML=parseInt(QARecords[i].Marks)*100/150;
+            if(parseInt(QARecords[i].Marks)>=115)
+            {
+                TD_PassFail.innerHTML="<font color='green'> Pass </font>";
+            }
+            else
+            {
+                TD_PassFail.innerHTML="<font color='red'> Fail </font>";
+            }
+
+
+            Trow.appendChild(TD_regno);
+            Trow.appendChild(TD_name);
+            Trow.appendChild(TD_marks);
+            Trow.appendChild(TD_percentage);
+            Trow.appendChild(TD_PassFail);
+
+
+            Reftable.appendChild(Trow);
+        }
+        document.body.appendChild(Reftable);
+    }
+
+    function showpassrecords(){
+        let Reftable=document.createElement("table")
+        Reftable.border=4
+
+        let Trow=document.createElement("tr");
+        Trow.style.backgroundColor="black";
+        let TD_regno=document.createElement("td");
+        let TD_name=document.createElement("td");
+        let TD_marks=document.createElement("td");
+        let TD_percentage=document.createElement("td");
+        
+        TD_regno.innerHTML="<b> <font color=white> Registration </color> </b>";
+        TD_name.innerHTML="<b> <font color=white> Name </color> </b>";
+        TD_marks.innerHTML="<b> <font color=white> Marks </color> </b>";
+        TD_percentage.innerHTML="<b> <font color=white> Percentage </color> </b>";
+        
+            Trow.appendChild(TD_regno);
+            Trow.appendChild(TD_name);
+            Trow.appendChild(TD_marks);
+            Trow.appendChild(TD_percentage);
+            
+            Reftable.appendChild(Trow);
+
+        for(i=0;i<QARecords.length;i++){
+            if(QARecords[i].Marks>=115){
+
+            let Trow=document.createElement("tr");
+            Trow.style.backgroundColor="white";
+            let TD_regno=document.createElement("td");
+            let TD_name=document.createElement("td");
+            let TD_marks=document.createElement("td");
+            let TD_percentage=document.createElement("td");
+            
+            TD_regno.innerHTML=QARecords[i].Regno;
+            TD_name.innerHTML=QARecords[i].Name;
+            TD_marks.innerHTML=QARecords[i].Marks;
+            TD_percentage.innerHTML=parseInt(QARecords[i].Marks)*100/150;
+           
+
+            Trow.appendChild(TD_regno);
+            Trow.appendChild(TD_name);
+            Trow.appendChild(TD_marks);
+            Trow.appendChild(TD_percentage);
+            
+
+            Reftable.appendChild(Trow);
+            }
+            else
+            {
+                continue;
+            }
+            
+
+
+        document.body.appendChild(Reftable);
+        }
+    }
+
+    function showallrecords(){
+        for(i=0;i<QARecords.length;i++){
+            showrecords(QARecords[i].Regno,QARecords[i].Name,QARecords[i].Marks);
+        }
+    }
+
+    function addrecords(){
+        QARecords.push(
+        {
+            "Regno":document.getElementById("New Regno").value,
+            "Name":document.getElementById("New Name").value,
+            "Marks":document.getElementById("New Marks").value
+        }
+        );
+    }
+
+    /*function addRecordtoDom(Regno,Name,Marks){
+        
+        let spanRecord=document.createElement("div");
+        let spanRegno=document.createElement("span");
+        let spanName=document.createElement("span");
+        let spanMarks=document.createElement("span");
+        let spanPercentage=document.createElement("span");
+        let spanPassFail=document.createElement("span");
+
+        spanRegno.innerHTML=QARecords[i].Regno;
+        spanName.innerHTML=QARecords[i].Name;
+        spanMarks.innerHTML=QARecords[i].Marks;
+        spanPercentage.innerHTML=(parseInt(QARecords[i].Marks)*100/150);
+        if(QARecords[i].Marks>=115)
+        {   spanPassFail.innerHTML="Pass";
+            spanPassFail.style.color="green";  }
+        else
+        {   spanPassFail.innerHTML="Fail";  
+            spanPassFail.style.color="red";  }
+    
+        spanName.style.color="green";
+        spanRecord.appendChild(spanRegno);
+        spanRecord.appendChild(spanName);
+        spanRecord.appendChild(spanMarks);
+        spanRecord.appendChild(spanPercentage);
+        spanRecord.appendChild(spanPassFail);
+        document.body.appendChild(spanRecord);
+    }  
+    */
+</script>
+
+<body>
+    Add Record: <br>
+    Regno:<input type="text" id="New Regno"> <br>
+    Name: <input type="text" id = "New Name"> <br>
+    Marks:<input type="text" id = "New Marks"> <br><br>
+
+
+    <input type="button" value="Show Records" onclick=showallrecords()>   
+    <input type="button" value="Add New Records" onclick=addrecords()>   
+    <input type="button" value="Show Passing Students" onclick=showpassrecords()>
+
+
+</body>
+</html>
