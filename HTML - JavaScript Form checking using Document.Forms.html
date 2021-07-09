@@ -1,14 +1,29 @@
 <html>
 
 <script>
+    function overwritevalue()
+    {   for(i=0;i<document.forms[0].elements.length;i++)
+        {
+            if(document.forms[0].elements[i].type=="radio")
+            {
+                document.forms[0].elements[i].value=document.forms[0].elements[i].id;
+            }
+        }
+    }
     function checkfill(){
+        console.log(document.forms[0].elements.length);
         for(i=0;i<document.forms[0].elements.length;i++)
         {
             if(document.forms[0].elements[i].value==""&&document.forms[0].elements[i].type=="text")
             {
+                document.getElementById("Form"+i).style.visibility="visible";                
+            }
+            /*if(document.forms[0].elements[i].type=="radio")
+            {
+                console.log(i+"--"+document.forms[0].elements[i].value);
                 document.getElementById(i).style.visibility="visible";                
             }
-            
+            */
         }
         
     }
@@ -19,23 +34,32 @@
     <h3> Please Complete the Following: </h3>
 </head>
 <form>
-    Name: <input type="text" style="position:absolute;left:110">
-        <span id="0" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+    <b>Name:</b> <input type="text" style="position:absolute;left:110">
+        <span id="Form0" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
         <br>
-    Date of Birth: <input type="text" style="position:absolute;left:110">
-        <span id="1" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+    <b>Date of Birth:</b> <input type="text" style="position:absolute;left:110">
+        <span id="Form1" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
         <br>
-    City: <input type="text" style="position:absolute;left:110">
-        <span id="2" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+    <b>City:</b> <input type="text" style="position:absolute;left:110">
+        <span id="Form2" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
         <br>
-    Telephone: <input type="text" style="position:absolute;left:110">
-        <span id="3" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+    <b>Telephone:</b> <input type="text" style="position:absolute;left:110">
+        <span id="Form3" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
         <br>
-    Email: <input type="text" style="position:absolute;left:110">
-        <span id="4" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span> 
+    <b>Email:</b> <input type="text" style="position:absolute;left:110">
+        <span id="Form4" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span> 
         <br><br>
+    <b>Account Type:</b>
+    <span id="Form5" style="visibility:hidden;position:absolute;left:150;color:red"> <i>Please select an Account Type </i></span> 
+    <br>
+    Savings : <input type="radio" name="accounttype" id="Savings" value="" style="position:absolute;left:110" onclick="overwritevalue()"> <br>
+    Banking : <input type="radio" name="accounttype" id="Banking" value="" style="position:absolute;left:110" onclick="overwritevalue()"> <br>
+    ISA : <input type="radio" name="accounttype" id="ISA" value="" style="position:absolute;left:110" onclick="overwritevalue()"> <br>
+    Child Savers : <input type="radio" name="accounttype" id="Child" value="" style="position:absolute;left:110" onclick="overwritevalue()">
 
-    <input type= "button" value="Submit" onclick="checkfill()">
+    <br>
+    <br>
+    <input type= "button" value="Submit" style="visibility:visible" onclick="checkfill()">
 </form>
 
 
