@@ -1,0 +1,63 @@
+<html>
+
+
+
+    <script>
+        let Words = [];
+        
+        function checkword(testword)
+        {
+            for(let x=0;x<Words.length;x++)
+            {
+                if(Words[x]==testword||testword==" ")
+                {
+                    return false;
+                }
+            }
+            Words.push(testword);
+            return true;
+        }
+        
+        function checkforwords()
+        {
+            Words=[];
+            let message = document.getElementById("message").value;
+            let word="";
+            let newmessage="";
+            for(let i=0;i<message.length;i++)
+            {
+                if(message.substring(i,i+1)==" "||message.substring(i,i+1)==","||message.substring(i,i+1)==".")
+                {
+                    if(checkword(word))
+                    {
+                        newmessage+=" "+word;
+                    }
+                    word="";
+                }
+                else
+                {
+                    word+=message.substring(i,i+1);
+                }
+            }
+            if(checkword(word))
+                {
+                    newmessage+=" "+word;
+                    word="";
+                }
+            document.getElementById("output").value=newmessage;
+        }
+        
+
+            
+
+        
+    </script>
+
+        <input type="text" id="message">
+        <br>
+        <input type="button" onclick="checkforwords()">
+        <br>
+        <input type="text" id="output">
+
+
+</html>

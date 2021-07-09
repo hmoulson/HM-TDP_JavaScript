@@ -1,0 +1,75 @@
+<html>
+
+<script>
+
+    
+    function thirdfunction(inputs){
+        inputs(8000,14);
+    }
+
+
+    function clickit(){
+        let B=function(salary,taxrate){
+            let tax = salary*(taxrate/100)
+            let takehomepay = salary - tax
+            console.log("Your tax is "+tax);
+            console.log("Your takehomepay is "+takehomepay);
+
+        }
+
+        let A=function(a,b){
+            let result=a+b;
+            alert("The Result is :"+result)
+        }
+
+        thirdfunction(B);
+    }
+
+    /*function secondfunction(num){
+        let dosomething;
+
+        if(num==1){
+            dosomething=function(){
+                console.log("This is Option 1");
+            }
+        }
+
+        if(num==2){
+            dosomething=function(){
+                console.log("This is Option 2");
+            }
+        }
+
+        return dosomething;
+
+    }
+
+    function clickit(){
+        let firstfunction=secondfunction(2);
+        firstfunction();
+    }
+    */
+
+
+
+
+
+</script>
+<body>
+    <form>
+        <fieldset>
+            <input type="radio" id="1" value="1" name="option select"> 1
+            <input type="radio" id="2" value="2" name="option select"> 2 <br>
+        </fieldset>
+
+
+    </form>
+
+
+
+</body>
+
+
+
+<input type = button onclick="clickit()">
+</html>

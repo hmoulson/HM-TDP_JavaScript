@@ -1,0 +1,46 @@
+<html>
+
+<script>
+    function numberofforms(){
+    for(i=0;i<document.forms.length;i++)
+        {
+            console.log("-------------------");
+            console.log(" ");
+            console.log("form"+i+"  ---->  "+document.forms[i].elements.length+" elements");
+            console.log("-------------------");
+            for(let j=0;j<document.forms[i].elements.length;j++)
+            {
+                console.log("element "+j+"  ---->  "+document.forms[i].elements[j].id);
+            }
+        }
+    }
+
+
+</script>
+
+<input type = "button" onclick=numberofforms()>
+
+<form>
+    <input type="button">
+    <input>
+    <input type="radio">
+    <input>
+</form>
+
+<form>
+    <input>
+    <input type="button">
+    <input>
+</form>
+
+<form>
+    <input type="radio">
+    <input type="radio">
+    <input>
+    <input type="button">
+    <input>
+    <input type="button">
+</form>
+
+
+</html>
