@@ -1,0 +1,42 @@
+<html>
+
+<script>
+    function checkfill(){
+        for(i=0;i<document.forms[0].elements.length;i++)
+        {
+            if(document.forms[0].elements[i].value==""&&document.forms[0].elements[i].type=="text")
+            {
+                document.getElementById(i).style.visibility="visible";                
+            }
+            
+        }
+        
+    }
+
+</script>
+
+<head>
+    <h3> Please Complete the Following: </h3>
+</head>
+<form>
+    Name: <input type="text" style="position:absolute;left:110">
+        <span id="0" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+        <br>
+    Date of Birth: <input type="text" style="position:absolute;left:110">
+        <span id="1" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+        <br>
+    City: <input type="text" style="position:absolute;left:110">
+        <span id="2" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+        <br>
+    Telephone: <input type="text" style="position:absolute;left:110">
+        <span id="3" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span>
+        <br>
+    Email: <input type="text" style="position:absolute;left:110">
+        <span id="4" style="visibility:hidden;position:absolute;left:290;color:red"> ** </span> 
+        <br><br>
+
+    <input type= "button" value="Submit" onclick="checkfill()">
+</form>
+
+
+</html>
